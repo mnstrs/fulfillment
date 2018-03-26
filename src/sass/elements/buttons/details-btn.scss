@@ -1,0 +1,39 @@
+.details-btn{
+    @extend %action;
+    width: 80%;
+
+    &:before{
+        @extend %pseudo_icon;
+        top: 3px;
+        right: -6px;
+        height: 16px;
+        width: 16px;
+        background: $c3;
+        border-radius: 4px;
+        transform: rotate(-45deg);
+        transition:background 0.2s $transition1;
+    }
+
+
+    &:hover{
+        &:before{
+            background: lighten($c3, 6);
+        }
+    }
+
+    &:active {
+        &:before{
+            background: darken($c3, 6);
+        }
+    }
+
+    .current &{
+
+        &:before{
+            right: initial;
+            left: -6px
+        }
+
+    }
+    
+}

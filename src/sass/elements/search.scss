@@ -1,0 +1,26 @@
+    input[type="search"]{
+        min-width: 320px;
+        font-weight: 300;
+        @include rem('font-size', 15px);
+        border-radius: 4px;
+        color: $c2;
+    }
+
+    .search-filters{
+
+        .search{
+            position: relative;
+            padding: 45px 0 45px 3%;
+            border-left: 1px solid $c2;
+
+            &:before{
+                @extend %pseudo_icon;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 1px;
+                background: lighten($c2, 12);
+            }
+        }
+
+    }

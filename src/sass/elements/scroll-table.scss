@@ -1,0 +1,11 @@
+.scroll-table{
+    position: relative;
+    height: 492px;
+    overflow: hidden;
+    overflow-y: auto;
+    align-items: flex-start;
+
+    &.no-scroll{
+        overflow: hidden
+    }
+}

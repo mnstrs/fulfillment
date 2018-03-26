@@ -1,0 +1,19 @@
+footer{
+    padding: 0 0 50px;
+    text-align: center;
+    color: $cWhite;
+
+    .logo-wrp{
+        position: relative;
+        top: 14px;
+        display: inline-block;
+        overflow: hidden;
+        width: 35px;
+
+        img{
+            height: 30px;
+            width: auto;
+        }
+
+    }
+}

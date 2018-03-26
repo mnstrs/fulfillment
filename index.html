@@ -1,0 +1,395 @@
+<!doctype html>
+<html class="no-js" lang="" ng-app="fulfillment">
+
+<head>
+	<meta charset="utf-8">
+	<!-- Always force latest IE rendering engine (even in intranet) -->
+	<!--[if IE ]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="dist/style.css">
+
+</head>
+
+<body class="main">
+
+	<header class="header">
+
+		<div class="container">
+			<a href="#" class="logo-bs">
+				<span class="logo-wrp">
+					<img src="https://cdn-www.bluestacks.com/bs-images/new-logo-white.png" height="104" width="346" />
+				</span>
+				Fulfillment
+			</a>
+		</div>
+
+	</header>
+
+	<main ng-controller="TableController">
+
+		<header class="search-filters">
+			<div class="container">
+
+				<div class="flex between">
+
+					<div class=" filters">
+						
+						<h4>Filter by...</h4>
+
+						<div class="flex" ng-if="sources.length >= 1">
+							<!-- <div class="filter select-element">
+								<div class="filter-head">{{current}} <i class="arrow"></i></div>
+								<ul class="list-filters">
+									<li ng-click="changeCurrent(source | beautify, $event); " ng-class="{current}" ng-repeat="source in sources" data-filters="{{source}}">
+										{{source | beautify}}
+									</li>
+								</ul>
+							</div>
+
+							<div class="filter select-element">
+								<div class="filter-head">Pika Rewards <i class="arrow"></i></div>
+								<ul class="list-filters">
+									<li><a href="#">Pika Rewards 1</a></li>
+									<li><a href="#">Pika Rewards 2</a></li>
+									<li><a href="#">Pika Rewards 3</a></li>
+									<li><a href="#">Pika Rewards 4</a></li>
+									<li><a href="#">Pika Rewards 5</a></li>
+								</ul>
+							</div>
+
+							<div class="filter select-element">
+								<div class="filter-head">Pika Store <i class="arrow"></i></div>
+								<ul class="list-filters">
+									<li><a href="#">Pika Store 1</a></li>
+									<li><a href="#">Pika Store 2</a></li>
+									<li><a href="#">Pika Store 3</a></li>
+									<li><a href="#">Pika Store 4</a></li>
+									<li><a href="#">Pika Store 5</a></li>
+								</ul>
+							</div>
+
+							<div class="filter select-element">
+								<div class="filter-head">Coordinator <i class="arrow"></i></div>
+								<ul class="list-filters">
+									<li  ng-click="changeCurrent(source | beautify, $event);" ng-repeat="coordinator in coordinators">{{coordinator}}</li>
+								</ul>
+							</div>
+ -->
+							<filter-element filter-sources="sources" current-selection="Quest" selected-filter="current"></filter-element>
+							<filter-element filter-sources="coordinators" current-selection="Coordinators" selected-filter="current"></filter-element>
+
+
+							<button type="button" class="submit-filters button">
+								 Submit
+							</button>
+
+						</div>
+						
+					</div>
+
+					<div class="search">
+						<h4>Search</h4>
+						<div class="field">
+							<input ng-model="peopleSearch" type="search" name="" id="" placeholder="by email, prize, quest, etc.">
+						</div>
+					</div>
+
+				</div>
+				
+			</div>
+		</header>
+
+		<section class="results-wrp container">
+
+			<div class="results-table-wrp ">
+				<h5 class="section-title">results {{peopleSearch}}</h5>
+
+				<div class="results-body">
+					<div class="scroll-table flex">
+						<table class="results-table">
+							<thead>
+								<tr>
+									<th>
+										First Name
+									</th>
+									<th>
+										Last Name
+									</th>
+									<th>
+										Shipping Email
+									</th>
+									<th>
+										Phone Number
+									</th>
+									<th>
+										Geo Code
+									</th>
+									<th>
+										Coordinator
+									</th>
+									<th>
+										Item Type
+									</th>
+									<th>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="one in people | filter:peopleSearch">
+								
+									<td>{{one.first_name}}</td>
+									<td>{{one.last_name}}</td>
+									<td>{{one.email}}</td>
+									<td>{{one.phone_no}}</td>
+									<td class="centered">
+										{{one.country_code}}
+									</td>
+									<td></td>
+									<td>{{one.item_id | beautify }}</td>
+
+									<td class="centered">
+										<button class="details-btn" type="button" ng-click="showDetails(one.guid)">Details</button>
+									</td>
+
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+					
+					<div class="details">
+						<h4>DETAILS FOR <strong>Pablo Escobar</strong></h4>
+
+						<div class="flex">
+
+							<fieldset class="field-group two-hundred">
+
+								<div class="field">
+									<label for="coordinator">Coordinator</label>
+									<input type="text" name="" id="coordinator">
+								</div>
+								
+								<div class="flex field">
+									<label for="shirt-size" class="fullWidth">Shirt Size</label>
+									<div class="field">
+										<input type="text" name="" id="male">
+									</div>
+									<div class="field">
+										<input type="text" name="" id="shirt-size">
+									</div>
+								</div>
+
+								<div class="field">
+									<label>Address Verified</label>
+									<div class="flex">
+
+										<input type="radio" name="address-verified" id="address-verified-ok" value="ok">
+										<label for="address-verified-ok"> Ok </label>
+										
+										<input type="radio" name="address-verified" id="address-verified-no" value="no">
+										<label for="address-verified-no">No</label>
+
+									</div>
+								</div>
+								
+								<div class="field">
+									<label for="shipping-status">Shipping Status</label>
+									<div class="flex">
+										<input type="text" name="" id="shipping-status">
+									</div>
+								</div>
+
+							</fieldset>
+
+							<fieldset class="field-group">
+
+								<div class="field">
+									<label for="street-address">Street Address</label>
+									<div class="flex">
+										<input type="text" name="" id="street-address">
+									</div>
+								</div>
+
+								<div class="flex field">
+
+									<div class="field">
+										<label for="city">City</label>
+										<div class="flex">
+											<input type="text" name="" id="city">
+										</div>
+									</div>
+
+									<div class="field">
+										<label for="state">State</label>
+										<div class="flex">
+											<input type="text" name="" id="state">
+										</div>
+									</div>
+								</div>
+
+								<div class="field">
+									<label for="shipping-notes">Shipping Notes (if any)</label>
+									<div class="flex">
+										<input type="text" name="" id="shipping-notes">
+									</div>
+								</div>
+
+								<div class="flex field">
+								
+									<div class="field">
+										<label for="traking">Tracking #</label>
+										<div class="flex">
+											<input type="text" name="" id="traking">
+										</div>
+									</div>
+								
+									<div class="field">
+										<label for="carrier">Carrier</label>
+										<div class="flex">
+											<input type="text" name="" id="carrier">
+										</div>
+									</div>
+								</div>
+									
+
+							</fieldset>
+
+							<fieldset class="field-group two-hundred">
+
+								<div class="field">
+									<label for="zip-code">Zip Code</label>
+									<div class="flex">
+										<input type="text" name="" id="zip-code">
+									</div>
+								</div>
+
+								<figure class="field">
+									<label for="zip-code">IMAGE</label>
+									<img src="" />
+								</figure>
+								
+
+							</fieldset>
+
+						</div>
+
+						<div class="flex">
+
+							<fieldset class="field-group two-hundred">
+
+								<div class="field flex">
+									<label for="item-cost">Item Cost</label>
+									<input type="text" id="item-cost">
+								</div>
+
+								<div class="field flex">
+									<label for="shipping-cost">Shipping Cost</label>
+									<input type="text" id="shipping-cost">
+								</div>
+
+								<div class="field flex">
+									<label for="customs-cost">Customs Cost</label>
+									<input type="text" id="customs-cost">
+								</div>
+
+								<div class="field flex">
+									<label for="currency-cost">Currency Cost</label>
+									<input type="text" id="currency-cost">
+								</div>
+
+							</fieldset>
+
+							<fieldset class="field-group seventh">
+
+								<div class="field flex">
+									<label for="other-cost">Other Cost</label>
+									<input type="text" id="other-cost">
+								</div>
+
+								<div class="field flex">
+									<label for="explain">If yes, explain</label>
+									<textarea type="text" id="explain"></textarea>
+								</div>
+
+								<div class="field flex between auto">
+									<div class="field flex">
+										<label for="total-cost">
+											<strong>TOTAL Cost</strong>
+										</label>
+										<input type="text" id="total-cost">
+									</div>
+
+									<div class="field">
+										<button class="save-button" type="action">Save</button>
+									</div>
+								</div>
+
+							</fieldset>
+
+						</div>
+
+					</div>
+				</div>
+
+				<div class="flex navigation">
+
+					<button type="button" class="action to-csv">
+						Export results to CSV
+					</button>
+					
+					<nav class="pagination">
+						<ul class="pagination">
+							<li>
+								<a href class="to-left inactive" >
+									<
+								</a>
+							</li>
+					
+							<li>
+								<a href="#" class="current">1</a>
+							</li>
+
+							<li>
+								<a href="#">2</a>
+							</li>
+
+							<li>
+								<a href="#">3</a>
+							</li>
+
+							<li>
+								<a href="#">4</a>
+							</li>
+
+							<li>
+								<a href="#">5</a>
+							</li>
+
+							<li>
+								<a href="#" class="to-right">></a>
+							</li>
+						</ul>
+					</nav>
+
+				</div>
+			</div>
+
+		</section>
+
+	</main>
+
+	<footer>
+		<div class="container">
+			<span class="logo-wrp">
+				<img src="https://cdn-www.bluestacks.com/bs-images/new-logo-white.png" height="104" width="346" />
+			</span>
+			BlueStacks Systems, Inc. 2018 - All Rights Reserved
+		</div>
+	</footer>
+
+</body>
+
+<script async src="dist/script.js"></script>
+
+</html>

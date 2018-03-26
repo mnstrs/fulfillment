@@ -1,0 +1,22 @@
+.results-table-wrp{
+    // @include p-b-($spacer-xs);
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0 30px rgba(darken($c1, 20), 0.4);
+    background: lighten($c1, 8);
+    overflow: hidden;
+
+    .section-title{
+        margin: 0;
+        @include p-($spacer-xs);
+        background: lighten($c1, 10);
+    }
+
+    .navigation{
+        justify-content: space-around;
+        width: 100%;
+        padding: 20px 0;
+    }
+    
+}
+

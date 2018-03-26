@@ -1,0 +1,7 @@
+.to-csv{
+    align-self: center;
+    margin: 0;
+    display: block;
+    @extend %action;
+    @include rem('font-size', 20px);
+}

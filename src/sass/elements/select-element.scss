@@ -1,0 +1,96 @@
+.select-element{
+    position: relative;
+    margin: 0 8px;
+
+    &:first-child{
+        margin-left: 0;
+    }
+
+    &:last-child{
+        margin-right: 0;
+    }
+    
+    &:hover{
+
+        .filter-head{
+            background: $cWhite;
+            color: $c1;
+
+            .arrow{
+                border-top-color: $c1;
+            }
+
+        }
+
+        ul{
+            transform: scale3d(1,1,1);
+            transition: 0.2s 0.2s $transition3 transform, 0.2s $transition3 opacity;
+
+            li{
+                opacity: 1;
+                transition: 0.2s 0.4s $transition1 opacity;
+            }
+        }
+
+    }
+    
+    .filter-head{
+        position: relative;
+        z-index: 3;
+        height: 35px;
+        width: 150px;
+        padding: 6px 36px 6px 12px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: 2px solid $cWhite;
+        background: transparent;
+        color: $cWhite;
+        font-weight: 300;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    ul{
+        position: absolute;
+        margin: 4px 0 0;
+        z-index: 3;
+        width: 100%;
+        padding: 5px 0;
+        border: 2px solid $cWhite;
+        border-radius:5px;
+        color: $cWhite;
+        background: $c1;
+        transition: 0.2s 0.2s $transition3 transform, 0.2s $transition3 opacity;
+        transform-origin: 0 0;
+        transform: scale3d(1,0,1);
+
+        li{
+            opacity: 0;
+            display: block;
+            padding: 5px 10px;
+            color: $cWhite;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+            transition: 0.2s $transition1 opacity;
+
+            a{
+                color: currentColor;
+            }
+
+            &:hover{
+                color: $c1;
+                background: $cWhite;
+
+                a{
+                    color: currentColor;
+                }
+            }
+
+        }
+
+    }
+
+}

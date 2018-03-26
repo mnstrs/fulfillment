@@ -1,0 +1,12 @@
+.submit-filters{
+    margin-left: 8px;
+    display: inline-block;
+    padding: 7px 40px;
+    background: $c3;
+    border-radius: 3px;
+    color: $cWhite;
+    font-weight: 700;
+    cursor: pointer;
+    @include rem('font-size', 20px);
+    @extend %red-buttons-behaviors;
+}

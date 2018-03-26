@@ -1,0 +1,5 @@
+.section-title{
+    color: $cWhite;
+    text-transform: uppercase;
+    @include rem('font-size', 25px);
+}

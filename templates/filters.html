@@ -1,0 +1,13 @@
+>> {{$id}}
+<div class="filter select-element">
+    hey => {{selectedFilter}}
+    <div class="filter-head">
+        {{selectedFilter || currentSelection}}
+        <i class="arrow"></i>
+    </div>
+    <ul class="list-filters">
+        <li ng-repeat="source in filterSources" ng-click="selectFilter(source)">
+            {{source | beautify}}
+        </li>
+    </ul>
+</div>
