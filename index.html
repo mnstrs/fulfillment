@@ -34,7 +34,7 @@
 				<div class="flex between">
 
 					<div class=" filters">
-						
+
 						<h4>Filter by...</h4>
 
 						<div class="flex" ng-if="sources.length >= 1">
@@ -76,8 +76,8 @@
 								</ul>
 							</div>
  -->
-							<filter-element filter-sources="sources" current-selection="Quest" selected-filter="current"></filter-element>
-							<filter-element filter-sources="coordinators" current-selection="Coordinators" selected-filter="current"></filter-element>
+							<filter-element filter-sources="sources" current-selection="Quest" filter-param="source_name"></filter-element>
+							<filter-element filter-sources="coordinators" current-selection="Coordinators" filter-param="coordinator"></filter-element>
 
 
 							<button type="button" class="submit-filters button">
@@ -85,7 +85,7 @@
 							</button>
 
 						</div>
-						
+
 					</div>
 
 					<div class="search">
@@ -96,7 +96,7 @@
 					</div>
 
 				</div>
-				
+
 			</div>
 		</header>
 
@@ -137,7 +137,7 @@
 							</thead>
 							<tbody>
 								<tr ng-repeat="one in people | filter:peopleSearch">
-								
+
 									<td>{{one.first_name}}</td>
 									<td>{{one.last_name}}</td>
 									<td>{{one.email}}</td>
@@ -157,7 +157,7 @@
 							</tbody>
 						</table>
 					</div>
-					
+
 					<div class="details">
 						<h4>DETAILS FOR <strong>Pablo Escobar</strong></h4>
 
@@ -169,7 +169,7 @@
 									<label for="coordinator">Coordinator</label>
 									<input type="text" name="" id="coordinator">
 								</div>
-								
+
 								<div class="flex field">
 									<label for="shirt-size" class="fullWidth">Shirt Size</label>
 									<div class="field">
@@ -186,13 +186,13 @@
 
 										<input type="radio" name="address-verified" id="address-verified-ok" value="ok">
 										<label for="address-verified-ok"> Ok </label>
-										
+
 										<input type="radio" name="address-verified" id="address-verified-no" value="no">
 										<label for="address-verified-no">No</label>
 
 									</div>
 								</div>
-								
+
 								<div class="field">
 									<label for="shipping-status">Shipping Status</label>
 									<div class="flex">
@@ -236,14 +236,14 @@
 								</div>
 
 								<div class="flex field">
-								
+
 									<div class="field">
 										<label for="traking">Tracking #</label>
 										<div class="flex">
 											<input type="text" name="" id="traking">
 										</div>
 									</div>
-								
+
 									<div class="field">
 										<label for="carrier">Carrier</label>
 										<div class="flex">
@@ -251,7 +251,7 @@
 										</div>
 									</div>
 								</div>
-									
+
 
 							</fieldset>
 
@@ -268,7 +268,7 @@
 									<label for="zip-code">IMAGE</label>
 									<img src="" />
 								</figure>
-								
+
 
 							</fieldset>
 
@@ -337,7 +337,7 @@
 					<button type="button" class="action to-csv">
 						Export results to CSV
 					</button>
-					
+
 					<nav class="pagination">
 						<ul class="pagination">
 							<li>
@@ -345,7 +345,7 @@
 									<
 								</a>
 							</li>
-					
+
 							<li>
 								<a href="#" class="current">1</a>
 							</li>

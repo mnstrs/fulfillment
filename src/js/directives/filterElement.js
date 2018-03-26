@@ -1,18 +1,27 @@
-export default () => {
+import beautify from '../filters/beautify'
+export default filterService => {
 
     return {
         restrict: 'E',
         scope: {
             filterSources: '=',
-            currentSelection:'@',
-            selectedFilter: '='
+            currentSelection: '@',
+            filterParam: '@'
         },
         templateUrl: '/templates/filters.html',
-        controller: ['$scope', function ($scope){
-          $scope.selectFilter = (source) => {
-            $scope.selectedFilter = source;
-           }
+        replace: true,
+        controller: ['$scope', $scope => {
+
+            $scope.selectFilter = source => {
+                $scope.currentValue = source
+                filterService.passValue({
+                    param: $scope.filterParam,
+                    value: source
+                })
+                $scope.selectedFilter = beautify()(source)
+            }
+
         }]
     }
-
+    
 }
